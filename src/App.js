@@ -6,14 +6,20 @@ import Header from "./Components/Header";
 import Home from "./Components/Home";
 import Nav from "./Components/Nav";
 import Topics from "./Components/Topics";
+import userAvatar from "./images/user.jpeg";
 
 function App() {
   const [topics, setTopics] = useState([]);
+  const user = {
+    username: "Ajdabiya",
+    name: "Yousef",
+    avatar_url: userAvatar,
+  };
 
   return (
     <div className="App">
       <Header />
-      <Nav />
+      <Nav user={user} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/articles" element={<Articles />} />
