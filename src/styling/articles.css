@@ -1,0 +1,52 @@
+.articles {
+  display: flex;
+  gap: 10px;
+  border: solid 1.5px rgb(161, 161, 161);
+  border-radius: 25px;
+  color: gray;
+  width: 48%;
+  padding: 0px;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  margin: 4px;
+}
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.wrapper {
+  gap: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  padding: 10px;
+}
+
+.likeWrapper {
+  gap: 10px;
+}
+
+.title {
+  position: relative;
+  top: -20px;
+}
+
+.postedBy {
+  font-style: italic;
+}
+
+.topic {
+  color: rgb(104, 104, 219);
+  text-decoration: underline;
+}
