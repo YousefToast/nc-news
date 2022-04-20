@@ -5,10 +5,15 @@ const myApi = axios.create({
 });
 
 export const fetchArticles = (topic) => {
-  const articleUrl = topic ? `articles?topic=${topic}` : "/articles";
-  return myApi.get(articleUrl).then((res) => {
-    return res.data;
-  });
+  return myApi
+    .get("/articles", {
+      params: {
+        topic,
+      },
+    })
+    .then((res) => {
+      return res.data;
+    });
 };
 
 export const fetchTopics = () => {
