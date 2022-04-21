@@ -35,8 +35,12 @@ export const fetchCommentsById = (article_id) => {
 };
 
 export const addCommentById = (article_id, body, username) => {
+  return myApi.post(`articles/${article_id}/comments`, { body, username });
+};
+
+export const patchVotesById = (article_id, inc) => {
   return myApi
-    .post(`articles/${article_id}/comments`, { body, username })
+    .patch(`articles/${article_id}`, { inc_votes: inc })
     .then((res) => {
       return res.data;
     });
