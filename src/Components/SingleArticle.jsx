@@ -27,8 +27,8 @@ const SingleArticle = () => {
         <p>Comments: {article.comment_count}</p>
         <p>posted: {article.created_at}</p>
         <hr></hr>
-        <Comments article_id={article_id} />
         <AddComment article_id={article_id} />
+        <Comments article_id={article_id} />
       </section>
     </main>
   );
