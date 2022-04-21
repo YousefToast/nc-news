@@ -4,6 +4,7 @@ import { fetchArticlesById } from "../utils/api";
 import Comments from "./Comments";
 import Votes from "./Votes";
 import "../styling/SingleArticle.css";
+import AddComment from "./AddComment";
 
 const SingleArticle = () => {
   const [article, setArticle] = useState([]);
@@ -33,6 +34,7 @@ const SingleArticle = () => {
         <p>Comments: {article.comment_count}</p>
         <p>posted: {article.created_at}</p>
         <hr></hr>
+        <AddComment article_id={article_id} />
         <Comments article_id={article_id} />
       </section>
     </main>
