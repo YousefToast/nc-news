@@ -1,0 +1,61 @@
+.singleArticleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.singleArticle {
+  border: solid 1.5px rgb(161, 161, 161);
+  padding: 15px;
+  border-radius: 10px;
+  gap: 5px;
+  width: 100%;
+}
+
+ul {
+  margin: 0;
+  list-style: none;
+}
+
+.commentList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+p {
+  margin: 10px;
+}
+
+.underline {
+  position: relative;
+}
+
+.underline::after {
+  bottom: -10px;
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 2px;
+  background-color: grey;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.articleUnderline {
+  position: relative;
+}
+
+.articleUnderline::before {
+  bottom: -10px;
+  content: "";
+  position: absolute;
+  width: 800px;
+  height: 2px;
+  background-color: grey;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

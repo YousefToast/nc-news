@@ -21,3 +21,15 @@ export const fetchTopics = () => {
     return res.data;
   });
 };
+
+export const fetchArticlesById = (article_id) => {
+  return myApi.get(`/articles/${article_id}`).then((res) => {
+    return res.data;
+  });
+};
+
+export const fetchCommentsById = (article_id) => {
+  return myApi.get(`articles/${article_id}/comments`).then((res) => {
+    return res.data;
+  });
+};

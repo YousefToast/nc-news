@@ -7,6 +7,7 @@ import Home from "./Components/Home";
 import Nav from "./Components/Nav";
 import Topics from "./Components/Topics";
 import userAvatar from "./images/user.jpeg";
+import SingleArticle from "./Components/SingleArticle";
 
 function App() {
   const [topics, setTopics] = useState([]);
@@ -23,9 +24,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/articles" element={<Articles />} />
-        <Route path="/articles/:topic" element={<Articles />} />
+        <Route path="/topics/:topic" element={<Articles />} />
+        <Route path="/articles/:article_id" element={<SingleArticle />} />
         <Route
-          path="topics"
+          path="/topics"
           element={<Topics topics={topics} setTopics={setTopics} />}
         />
       </Routes>
