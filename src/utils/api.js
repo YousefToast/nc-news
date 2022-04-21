@@ -33,3 +33,11 @@ export const fetchCommentsById = (article_id) => {
     return res.data;
   });
 };
+
+export const patchVotesById = (article_id, inc) => {
+  return myApi
+    .patch(`articles/${article_id}`, { inc_votes: inc })
+    .then((res) => {
+      return res.data;
+    });
+};
