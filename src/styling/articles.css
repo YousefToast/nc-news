@@ -11,9 +11,11 @@
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  margin: 4px;
+  margin-top: 20px;
 }
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -30,6 +32,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   background: transparent;
+  overflow: hidden;
   padding: 10px;
 }
 
@@ -39,7 +42,7 @@ ul {
 
 .title {
   position: relative;
-  top: -20px;
+  top: 0px;
 }
 
 .postedBy {
@@ -49,4 +52,9 @@ ul {
 .topic {
   color: rgb(104, 104, 219);
   text-decoration: underline;
+}
+
+a {
+  text-decoration: none;
+  background: transparent;
 }

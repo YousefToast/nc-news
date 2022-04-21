@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { fetchArticles } from "../utils/api";
 import "../styling/articles.css";
 
@@ -19,18 +19,21 @@ const Articles = () => {
         {articles.map((article) => {
           return (
             <li key={article.article_id} className="articles">
-              <div className="wrapper">
-                <p>
-                  <span className="postedBy">posted by:</span> {article.author}
-                </p>
-                <p className="topic">{article.topic}</p>
-              </div>
+              <Link to={`/articles/${article.article_id}`}>
+                <div className="wrapper">
+                  <p>
+                    <span className="postedBy">posted by:</span>{" "}
+                    {article.author}
+                  </p>
+                  <p className="topic">{article.topic}</p>
+                </div>
 
-              <h3 className="title">{article.title}</h3>
-              <div className="wrapper likeWrapper">
-                <p>Votes: {article.votes}</p>
-                <p>Comments: {article.comment_count}</p>
-              </div>
+                <h3 className="title">{article.title}</h3>
+                <div className="wrapper likeWrapper">
+                  <p>Votes: {article.votes}</p>
+                  <p>Comments: {article.comment_count}</p>
+                </div>
+              </Link>
             </li>
           );
         })}
