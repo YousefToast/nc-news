@@ -13,7 +13,7 @@ const SingleArticle = () => {
     fetchArticlesById(article_id).then((res) => {
       setArticle(res.article);
     });
-  });
+  }, [article_id]);
 
   return (
     <main className="singleArticleWrapper">

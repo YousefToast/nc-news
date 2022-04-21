@@ -4,8 +4,8 @@ import { patchLikesById } from "../utils/api";
 
 const Votes = ({ votes, article_id, setArticle, article }) => {
   const handleLike = async (inc) => {
-    await patchLikesById(article_id, inc);
     setArticle({ ...article, votes: votes + inc });
+    await patchLikesById(article_id, inc);
   };
 
   return (
