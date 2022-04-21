@@ -33,3 +33,11 @@ export const fetchCommentsById = (article_id) => {
     return res.data;
   });
 };
+
+export const addCommentById = (article_id, body, username) => {
+  return myApi
+    .post(`articles/${article_id}/comments`, { body, username })
+    .then((res) => {
+      return res.data;
+    });
+};

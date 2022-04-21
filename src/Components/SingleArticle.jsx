@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { fetchArticlesById } from "../utils/api";
 import Comments from "./Comments";
 import "../styling/SingleArticle.css";
+import AddComment from "./AddComment";
 
 const SingleArticle = () => {
   const [article, setArticle] = useState([]);
@@ -27,6 +28,7 @@ const SingleArticle = () => {
         <p>posted: {article.created_at}</p>
         <hr></hr>
         <Comments article_id={article_id} />
+        <AddComment article_id={article_id} />
       </section>
     </main>
   );
