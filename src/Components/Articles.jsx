@@ -1,20 +1,44 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { fetchArticles } from "../utils/api";
 import "../styling/articles.css";
 
 const Articles = () => {
   const [articles, setAllArticles] = useState([]);
-  const { topic } = useParams();
+  const [sort_by, setSort_By] = useState("created_at");
+  const [order, setOrder] = useState("desc");
+  const limit = 10;
+  const [p, setP] = useState(1);
+  const queries = `?sort_by=${sort_by}&&order=${order}&&limit=${limit}&&p=${p}`;
 
   useEffect(() => {
-    fetchArticles(topic).then((res) => {
+    fetchArticles(queries).then((res) => {
       setAllArticles(res.articles);
     });
-  }, [topic]);
+  }, [queries]);
 
   return (
     <main>
+      <select
+        onChange={(e) => {
+          setSort_By(e.target.value);
+        }}
+        value={sort_by}
+      >
+        <option>created_at</option>
+        <option>votes</option>
+        <option>author</option>
+        <option>comment_count</option>
+      </select>
+      <select
+        onChange={(e) => {
+          setOrder(e.target.value);
+        }}
+        value={order}
+      >
+        <option>desc</option>
+        <option>asc</option>
+      </select>
       <ul>
         {articles.map((article) => {
           return (
@@ -37,6 +61,15 @@ const Articles = () => {
           );
         })}
       </ul>
+      <button
+        onClick={() => {
+          setP((currP) => {
+            return currP + 1;
+          });
+        }}
+      >
+        Next Page
+      </button>
     </main>
   );
 };
