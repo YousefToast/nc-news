@@ -23,15 +23,18 @@ const Articles = () => {
         onChange={(e) => {
           setSort_By(e.target.value);
         }}
+        value={sort_by}
       >
         <option>created_at</option>
         <option>votes</option>
         <option>author</option>
+        <option>comment_count</option>
       </select>
       <select
         onChange={(e) => {
           setOrder(e.target.value);
         }}
+        value={order}
       >
         <option>desc</option>
         <option>asc</option>
