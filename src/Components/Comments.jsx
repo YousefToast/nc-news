@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchCommentsById } from "../utils/api";
 import "../styling/SingleArticle.css";
+import DeleteComment from "./DeleteComment";
 
 const Comments = ({ article_id }) => {
   const [comments, setComments] = useState([]);
@@ -9,7 +10,7 @@ const Comments = ({ article_id }) => {
     fetchCommentsById(article_id).then((res) => {
       setComments(res.comments);
     });
-  });
+  }, [article_id]);
 
   return (
     <section>
@@ -20,6 +21,12 @@ const Comments = ({ article_id }) => {
               <p>posted by: {comment.author}</p>
               <p>{comment.body}</p>
               <p className="underline">Votes: {comment.votes}</p>
+              <DeleteComment
+                comment_id={comment.comment_id}
+                setComments={setComments}
+                author={comment.author}
+                comments={comments}
+              />
             </li>
           );
         })}
