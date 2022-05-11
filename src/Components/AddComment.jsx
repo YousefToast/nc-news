@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { addCommentById } from "../utils/api";
 
-const AddComment = ({ article_id }) => {
+const AddComment = ({ article_id, comments, setComments }) => {
   const [comment, setComment] = useState({
     username: "jessjelly",
     body: "",
@@ -10,7 +10,21 @@ const AddComment = ({ article_id }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     addCommentById(article_id, comment.body, comment.username);
-    setComment({ ...comment, body: "" });
+    setComment((currentComment) => ({
+      ...currentComment,
+      body: "",
+    }));
+    setComments((currComments) => {
+      return [
+        ...currComments,
+        {
+          author: comment.username,
+          body: comment.body,
+          votes: 0,
+          comment_id: -1,
+        },
+      ];
+    });
   };
 
   return (

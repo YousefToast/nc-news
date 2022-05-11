@@ -39,3 +39,7 @@ export const patchVotesById = (article_id, inc) => {
       return res.data;
     });
 };
+
+export const deleteComment = (comment_id) => {
+  return myApi.delete(`/comments/${comment_id}`);
+};

@@ -8,13 +8,14 @@ import AddComment from "./AddComment";
 
 const SingleArticle = () => {
   const [article, setArticle] = useState([]);
+  const [comments, setComments] = useState([]);
 
   const { article_id } = useParams();
   useEffect(() => {
     fetchArticlesById(article_id).then((res) => {
       setArticle(res.article);
     });
-  }, [article_id]);
+  }, [article_id, setComments]);
 
   return (
     <main className="singleArticleWrapper">
@@ -34,8 +35,16 @@ const SingleArticle = () => {
         <p>Comments: {article.comment_count}</p>
         <p>posted: {article.created_at}</p>
         <hr></hr>
-        <AddComment article_id={article_id} />
-        <Comments article_id={article_id} />
+        <AddComment
+          article_id={article_id}
+          comments={comments}
+          setComments={setComments}
+        />
+        <Comments
+          article_id={article_id}
+          comments={comments}
+          setComments={setComments}
+        />
       </section>
     </main>
   );
