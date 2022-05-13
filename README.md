@@ -28,7 +28,7 @@ $ npm install
 
 This command should install all the dependencies used to create this project and should get you set up to use the repository.
 
-# Node.js and Postgres
+# Node.js
 
 For test and development, you will need Node.js and Postgres installed. The minimum Versions needed to run the project:
 
