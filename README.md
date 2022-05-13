@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# FrontEnd NC-News Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a frontend news service, it has been designed with the purpose to provide a fully functioning website that is linked with a backend project. To access the website please click in the following link:
+https://shrelnews.netlify.app/
 
-## Available Scripts
+This project is similar to reddit and other social media/blog platforms. It allows the user to access articles made and posted by other users and allows you to interact with them. This involved leaving a comment or leaving a like or dislike on someones article. The main article page allows for multiple methods of filtering and sorting which involves sorting by author, votes, comments or the date it was created. It also has pagination as well as limit to how many articles per page.
 
-In the project directory, you can run:
+To view the Backend project please click on the following link:
+https://github.com/YousefToast/Back-End-News-Project
 
-### `npm start`
+# Cloning the Repo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+In order to clone the repository, you must enter the following commands into the terminal:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+$ git clone https://github.com/YousefToast/nc-news
+$ cd nc-news
+$ code .
+```
 
-### `npm test`
+# Installing dependencies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To ensure the right dependencies are added, just enter the following command into the vs code terminal:
 
-### `npm run build`
+```bash
+$ npm install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This command should install all the dependencies used to create this project and should get you set up to use the repository.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Node.js and Postgres
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+For test and development, you will need Node.js and Postgres installed. The minimum Versions needed to run the project:
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- NodeJS: v16.14
