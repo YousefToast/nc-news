@@ -1,13 +1,30 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchTopics } from "../utils/api";
 import { Link } from "react-router-dom";
+import ErrorPage from "./ErrorPage";
+import LoadingPage from "./LoadingPage";
 
 const Topics = ({ topics, setTopics }) => {
+  const [errorState, setErrorState] = useState(false);
+
   useEffect(() => {
     fetchTopics().then((res) => {
-      setTopics(res.topics);
+      if (res.isError) {
+        setErrorState(res);
+      } else {
+        setTopics(res.topics);
+      }
     });
-  });
+  }, [setTopics]);
+
+  if (!topics.length && !errorState) return <LoadingPage />;
+
+  if (errorState)
+    return (
+      <div>
+        <ErrorPage err={errorState} />
+      </div>
+    );
 
   return (
     <main>

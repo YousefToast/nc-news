@@ -5,17 +5,33 @@ import Comments from "./Comments";
 import Votes from "./Votes";
 import "../styling/SingleArticle.css";
 import AddComment from "./AddComment";
+import ErrorPage from "./ErrorPage";
+import LoadingPage from "./LoadingPage";
 
 const SingleArticle = () => {
-  const [article, setArticle] = useState([]);
+  const [article, setArticle] = useState(false);
   const [comments, setComments] = useState([]);
+  const [errorState, setErrorState] = useState(false);
 
   const { article_id } = useParams();
   useEffect(() => {
     fetchArticlesById(article_id).then((res) => {
-      setArticle(res.article);
+      if (res.isError) {
+        setErrorState(res);
+      } else {
+        setArticle(res.article);
+      }
     });
   }, [article_id, setComments]);
+
+  if (!article && !errorState) return <LoadingPage />;
+
+  if (errorState)
+    return (
+      <div>
+        <ErrorPage err={errorState} />
+      </div>
+    );
 
   return (
     <main className="singleArticleWrapper">

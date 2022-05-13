@@ -27,6 +27,8 @@ const AddComment = ({ article_id, comments, setComments }) => {
     });
   };
 
+  const disableButton = !!comment.body.trim().length;
+
   return (
     <main>
       <form onSubmit={handleSubmit}>
@@ -40,7 +42,9 @@ const AddComment = ({ article_id, comments, setComments }) => {
           }}
           value={comment.body}
         ></input>
-        <button type="submit">Add Comment</button>
+        <button disabled={!disableButton} type="submit">
+          Add Comment
+        </button>
       </form>
     </main>
   );
