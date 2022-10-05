@@ -4,7 +4,7 @@ import { fetchArticles } from "../utils/api";
 import ErrorPage from "./ErrorPage";
 import "../styling/articles.css";
 import LoadingPage from "./LoadingPage";
-import { Button, Chip, Avatar } from "@mui/material";
+import { Button, Avatar } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const Articles = () => {
