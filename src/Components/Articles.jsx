@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { fetchArticles } from "../utils/api";
 import ErrorPage from "./ErrorPage";
 import "../styling/articles.css";
 import LoadingPage from "./LoadingPage";
+import { Button, Chip, Avatar } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Articles = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -14,6 +16,8 @@ const Articles = () => {
   const [p, setP] = useState(1);
   const [errorState, setErrorState] = useState(false);
   const queries = `?sort_by=${sort_by}&&order=${order}&&limit=${limit}&&p=${p}`;
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     fetchArticles(queries).then((res) => {
@@ -36,31 +40,42 @@ const Articles = () => {
     );
 
   return (
-    <main>
-      <select
-        onChange={(e) => {
-          setSort_By(e.target.value);
-        }}
-        value={sort_by}
-      >
-        <option>created_at</option>
-        <option>votes</option>
-        <option>author</option>
-        <option>comment_count</option>
-      </select>
-      <select
-        onChange={(e) => {
-          setOrder(e.target.value);
-        }}
-        value={order}
-      >
-        <option>desc</option>
-        <option>asc</option>
-      </select>
+    <main className="articles-wrap">
+      <div className="sortBy-wrap">
+        <h4>Sort By:</h4>
+        <select
+          className="filters"
+          onChange={(e) => {
+            setSort_By(e.target.value);
+          }}
+          value={sort_by}
+        >
+          <option>created_at</option>
+          <option>votes</option>
+          <option>author</option>
+          <option>comment_count</option>
+        </select>
+        <select
+          className="filters"
+          onChange={(e) => {
+            setOrder(e.target.value);
+          }}
+          value={order}
+        >
+          <option>desc</option>
+          <option>asc</option>
+        </select>
+      </div>
       <ul>
         {articles.map((article) => {
           return (
-            <li key={article.article_id} className="articles">
+            <li
+              key={article.article_id}
+              className="articles"
+              onClick={() => {
+                navigate(`${article.article_id}`);
+              }}
+            >
               <div className="wrapper">
                 <p>
                   <span className="postedBy">posted by:</span> {article.author}
@@ -68,9 +83,7 @@ const Articles = () => {
                 <p className="topic">{article.topic}</p>
               </div>
 
-              <Link to={`/articles/${article.article_id}`}>
-                <h3 className="title">{article.title}</h3>
-              </Link>
+              <h3 className="title">{article.title}</h3>
               <div className="wrapper likeWrapper">
                 <p>Votes: {article.votes}</p>
                 <p>Comments: {article.comment_count}</p>
@@ -79,15 +92,43 @@ const Articles = () => {
           );
         })}
       </ul>
-      <button
+      {/* <Chip
+        label="Previous Page"
         onClick={() => {
           setP((currP) => {
-            return currP + 1;
+            return currP - 1;
           });
         }}
-      >
-        Next Page
-      </button>
+        sx={{
+          backgroundColor: "#1976d2",
+          color: "white",
+        }}
+        size="small"
+        clickable
+      /> */}
+      <div className="articlePageButton">
+        <Button
+          variant="contained"
+          onClick={() => {
+            setP((currP) => {
+              return currP - 1;
+            });
+          }}
+        >
+          Previous Page
+        </Button>
+        <Avatar>{p}</Avatar>
+        <Button
+          variant="contained"
+          onClick={() => {
+            setP((currP) => {
+              return currP + 1;
+            });
+          }}
+        >
+          Next Page
+        </Button>
+      </div>
     </main>
   );
 };

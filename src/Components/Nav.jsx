@@ -1,14 +1,34 @@
-import { Link } from "react-router-dom";
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import "../styling/nav.css";
 
 const Nav = ({ user }) => {
   return (
-    <nav>
-      <Link to="/">Home</Link> | <Link to="/articles">All Articles</Link> |{" "}
-      <Link to="/topics">Topics</Link>{" "}
-      <img className="image" src={user.avatar_url} alt="user"></img>
-    </nav>
+    <div className="container">
+      <nav className="nav">
+        <Link to="/" className="siteName">
+          ShrelNews
+        </Link>
+        <ul>
+          <CustomLink to="/articles">All Articles</CustomLink>
+          <CustomLink to="/topics">Topics</CustomLink>
+        </ul>
+        <img className="image" src={user.avatar_url} alt="user"></img>
+      </nav>
+    </div>
   );
 };
+
+function CustomLink({ to, children, ...props }) {
+  const resolvedPath = useResolvedPath(to);
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+
+  return (
+    <li className={isActive ? "active" : ""}>
+      <Link to={to} {...props}>
+        {children}
+      </Link>
+    </li>
+  );
+}
 
 export default Nav;

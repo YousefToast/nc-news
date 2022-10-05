@@ -1,0 +1,11 @@
+.topics {
+  background-color: #282c34;
+  color: white;
+  margin: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}

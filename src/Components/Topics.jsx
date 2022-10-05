@@ -3,6 +3,7 @@ import { fetchTopics } from "../utils/api";
 import { Link } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import LoadingPage from "./LoadingPage";
+import "../styling/topics.css";
 
 const Topics = ({ topics, setTopics }) => {
   const [errorState, setErrorState] = useState(false);
@@ -27,7 +28,7 @@ const Topics = ({ topics, setTopics }) => {
     );
 
   return (
-    <main>
+    <main className="topics">
       {topics.map((topic) => {
         return (
           <Link to={`/topics/${topic.slug}`} key={topic.slug}>

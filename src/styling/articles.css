@@ -1,3 +1,20 @@
+.articles-wrap,
+.filters {
+  background-color: #282c34;
+  color: white;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.filters {
+  padding: 10px;
+}
+
+.sortBy-wrap {
+  margin: 20px;
+}
+
 .articles {
   display: flex;
   gap: 10px;
@@ -12,17 +29,20 @@
   justify-content: center;
   align-content: center;
   margin-top: 20px;
+  background-color: #282c34;
+  transition: 0.3s;
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+.articles:hover {
+  scale: 1.025;
+  background-color: #393b3f;
 }
 
 ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  color: white;
 }
 
 .wrapper {
@@ -34,6 +54,7 @@ ul {
   background: transparent;
   overflow: hidden;
   padding: 10px;
+  color: white;
 }
 
 .likeWrapper {
@@ -43,6 +64,7 @@ ul {
 .title {
   position: relative;
   top: 0px;
+  color: white;
 }
 
 .postedBy {
@@ -57,4 +79,13 @@ ul {
 a {
   text-decoration: none;
   background: transparent;
+  color: white;
+}
+
+.articlePageButton {
+  margin: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: stretch;
+  width: 95%;
 }

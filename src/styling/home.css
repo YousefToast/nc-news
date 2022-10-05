@@ -1,0 +1,51 @@
+.content {
+  text-align: center;
+  margin: 50px;
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  padding: 5em 3em;
+  position: relative;
+  display: grid;
+  align-content: center;
+
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.content::before {
+  content: "";
+  position: absolute;
+  z-index: 10;
+  inset: 0;
+  border: 3px solid white;
+
+  transform: translateZ(2rem);
+}
+
+.content::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.25);
+
+  transform: translateZ(-2rem);
+}
+
+.titleh2 {
+  height: 5vh;
+  padding: 20%;
+  display: grid;
+  place-items: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background: rgba(255, 255, 255, 0.25);
+  position: relative;
+  z-index: 10;
+  font-size: 2.5rem;
+
+  transform: translateZ(6rem);
+}
+
+.content:hover {
+  transform: rotateY(32deg) rotateX(32deg);
+}

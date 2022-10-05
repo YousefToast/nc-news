@@ -2,7 +2,6 @@ import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
 import Articles from "./Components/Articles";
-import Header from "./Components/Header";
 import Home from "./Components/Home";
 import Nav from "./Components/Nav";
 import Topics from "./Components/Topics";
@@ -19,7 +18,6 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
       <Nav user={user} />
       <Routes>
         <Route path="/" element={<Home />} />

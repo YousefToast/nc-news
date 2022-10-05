@@ -49,7 +49,7 @@ const SingleArticle = () => {
           />
         </div>
         <p>Comments: {article.comment_count}</p>
-        <p>posted: {article.created_at}</p>
+        <p>posted: {article.created_at.slice(0, 10)}</p>
         <hr></hr>
         <AddComment
           article_id={article_id}
